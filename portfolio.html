@@ -1,63 +1,209 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+  <!-- 한글 깨짐 방지 -->
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects</title>
 
+  <!-- 모바일 화면에서도 비율 맞게 보이게 함 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Portfolio | HerbSmile Code</title>
+
+  <!-- Tailwind CSS 불러오기 -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- 우리가 직접 관리하는 CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="bg-white text-slate-900 overflow-x-hidden">
 
-<div class="background"></div>
+  <!-- 은은한 배경 그라데이션 -->
+  <div class="background"></div>
 
-<section class="min-h-screen flex flex-col justify-center items-center text-center px-6 py-10">
+  <!-- =========================================
+       상단 고정 메뉴
+       fixed : 화면 위에 고정
+       top-0 : 맨 위에 붙임
+       z-50 : 다른 요소보다 위에 보이게 함
+  ========================================== -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+    <nav class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
 
-  <h1 class="text-5xl md:text-7xl font-bold tracking-tight">
-    Projects
-  </h1>
+      <!-- 왼쪽 사이트 이름 -->
+      <a href="index.html" class="text-sm font-semibold tracking-tight text-slate-900">
+        HerbSmile Code
+      </a>
 
-  <p class="mt-7 text-xl md:text-2xl text-slate-600">
-    Make Work Smarter.
-  </p>
+      <!-- 오른쪽 메뉴 -->
+      <div class="flex gap-7 text-sm">
 
- <p class="mt-4 text-slate-400 italic">
-    Python • Office Automation • HTML
-  </p>
+        <a href="index.html" class="nav-link">Home</a>
 
-  <a href="portfolio.html"
-     class="mt-9 inline-block bg-slate-900 text-white px-8 py-4 rounded-full hover:scale-105 duration-300">
-    View Portfolio →
-  </a>
+        <button class="nav-link active" onclick="showTab('about', this)">
+          About
+        </button>
 
-  <section id="projects" class="mt-24 w-full max-w-5xl">
+        <button class="nav-link" onclick="showTab('projects', this)">
+          Projects
+        </button>
 
-    <div class="grid md:grid-cols-3 gap-7">
+        <button class="nav-link" onclick="showTab('automation', this)">
+          Automation
+        </button>
 
-      <div class="card">
-        <h3>Python Automation</h3>
-        <p>스마트스토어 주문 자동화와 ERP 등록 자동화 프로젝트.</p>
+        <button class="nav-link" onclick="showTab('contact', this)">
+          Contact
+        </button>
+
+      </div>
+    </nav>
+  </header>
+
+  <!-- =========================================
+       메인 내용
+       pt-28 : 상단 메뉴와 내용이 겹치지 않게 위 여백
+  ========================================== -->
+  <main class="max-w-5xl mx-auto px-6 pt-28 pb-20">
+
+    <!-- 작은 페이지 라벨 -->
+    <p class="text-xs uppercase tracking-[0.25em] text-slate-400 mb-12">
+      Portfolio
+    </p>
+
+    <!-- =========================================
+         About 내용
+         처음 화면에 기본으로 보이는 탭
+    ========================================== -->
+    <section id="about" class="tab-content active-tab">
+
+      <div class="simple-section">
+
+        <p class="section-label">
+          About
+        </p>
+
+        <h1 class="section-title">
+          Make work smarter.
+        </h1>
+
+        <p class="section-desc">
+          깔끔하게 정리하고, 반복되는 일을 줄이고,
+          실무에 바로 쓸 수 있는 자동화 도구를 만들어가는 과정을 기록합니다.
+        </p>
+
       </div>
 
-      <div class="card">
-        <h3>Excel Dashboard</h3>
-        <p>데이터를 보기 좋게 정리하고 자동 보고서를 만드는 프로젝트.</p>
+    </section>
+
+    <!-- =========================================
+         Projects 내용
+    ========================================== -->
+    <section id="projects" class="tab-content">
+
+      <div class="simple-section">
+
+        <p class="section-label">
+          Projects
+        </p>
+
+        <div class="list-block">
+
+          <div class="list-item">
+            <h2>Portfolio Website</h2>
+            <p>HTML, CSS, GitHub Pages로 만든 개인 홈페이지 프로젝트.</p>
+          </div>
+
+          <div class="list-item">
+            <h2>Excel Dashboard</h2>
+            <p>데이터를 보기 좋게 정리하고 자동 보고서를 만드는 프로젝트.</p>
+          </div>
+
+          <div class="list-item">
+            <h2>Study Log</h2>
+            <p>Python, HTML, CSS 학습 과정을 기록하는 공간.</p>
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="card">
-        <h3>Portfolio Website</h3>
-        <p>HTML / CSS / JavaScript 기반 개인 포트폴리오 사이트.</p>
+    </section>
+
+    <!-- =========================================
+         Automation 내용
+    ========================================== -->
+    <section id="automation" class="tab-content">
+
+      <div class="simple-section">
+
+        <p class="section-label">
+          Automation
+        </p>
+
+        <h1 class="section-title">
+          Python Automation.
+        </h1>
+
+        <p class="section-desc">
+          네이버 스마트스토어 주문 중 우리 부서 상품만 자동 분류하고,
+          ERP 등록용 엑셀 파일을 만드는 것을 목표로 합니다.
+        </p>
+
+        <div class="steps">
+
+          <div>
+            <span>01</span>
+            <p>Order Filtering</p>
+          </div>
+
+          <div>
+            <span>02</span>
+            <p>Excel Export</p>
+          </div>
+
+          <div>
+            <span>03</span>
+            <p>ERP Ready</p>
+          </div>
+
+        </div>
+
       </div>
 
-    </div>
+    </section>
 
-  </section>
+    <!-- =========================================
+         Contact 내용
+    ========================================== -->
+    <section id="contact" class="tab-content">
 
-</section>
+      <div class="simple-section">
 
-<script src="script.js"></script>
+        <p class="section-label">
+          Contact
+        </p>
 
+        <h1 class="section-title">
+          Let’s build slowly.
+        </h1>
+
+        <p class="section-desc">
+          GitHub에 공부 기록과 프로젝트를 차근히 쌓아가는 중입니다.
+        </p>
+
+        <a href="https://github.com/herbsmile-code"
+           class="github-link">
+          Visit GitHub →
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- JavaScript 연결 -->
+  <script src="script.js"></script>
 </body>
 </html>

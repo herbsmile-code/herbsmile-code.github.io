@@ -1,3 +1,8 @@
+/* =========================================
+   GLOBAL
+   전체 페이지 공통 설정
+========================================= */
+
 html{
   scroll-behavior:smooth;
 }
@@ -6,14 +11,21 @@ body{
   margin:0;
 }
 
+/* 은은한 하늘색 배경 */
 .background{
   position:fixed;
   inset:0;
   background:
-    radial-gradient(circle at top, rgba(59,130,246,.15), transparent 45%),
+    radial-gradient(circle at top, rgba(59,130,246,.13), transparent 42%),
     linear-gradient(#ffffff,#f8fafc);
   z-index:-1;
 }
+
+
+/* =========================================
+   HOME PAGE CARD
+   index.html의 Projects 카드용
+========================================= */
 
 .card{
   background:white;
@@ -40,4 +52,187 @@ body{
   font-size:14px;
   line-height:1.6;
   color:#64748B;
+}
+
+
+/* =========================================
+   PORTFOLIO NAVIGATION
+   portfolio.html 상단 메뉴
+========================================= */
+
+/* 메뉴 링크/버튼 기본 */
+.nav-link{
+  color:#64748B;
+  transition:.25s;
+}
+
+/* 마우스 올렸을 때 */
+.nav-link:hover{
+  color:#0F172A;
+}
+
+/* 현재 선택된 메뉴 */
+.nav-link.active{
+  color:#0F172A;
+  font-weight:600;
+}
+
+
+/* =========================================
+   PORTFOLIO TAB CONTENT
+   메뉴 클릭 시 내용 변경
+========================================= */
+
+/* 기본적으로 모든 내용은 숨김 */
+.tab-content{
+  display:none;
+}
+
+/* active-tab이 붙은 내용만 보임 */
+.active-tab{
+  display:block;
+  animation:fadeUp .35s ease;
+}
+
+
+/* =========================================
+   PORTFOLIO SIMPLE LAYOUT
+   조잡한 카드 대신 선과 여백 중심
+========================================= */
+
+.simple-section{
+  border-top:1px solid #E2E8F0;
+  padding-top:42px;
+}
+
+/* 작은 섹션 라벨 */
+.section-label{
+  font-size:13px;
+  color:#94A3B8;
+  margin-bottom:28px;
+}
+
+/* 큰 제목 */
+.section-title{
+  font-size:42px;
+  line-height:1.15;
+  letter-spacing:-1px;
+  font-weight:700;
+  color:#0F172A;
+  margin-bottom:24px;
+}
+
+/* 설명 문장 */
+.section-desc{
+  max-width:680px;
+  font-size:17px;
+  line-height:1.9;
+  color:#64748B;
+}
+
+
+/* =========================================
+   PROJECT LIST
+   Projects 메뉴 내용
+========================================= */
+
+.list-block{
+  border-top:1px solid #E2E8F0;
+}
+
+.list-item{
+  padding:28px 0;
+  border-bottom:1px solid #E2E8F0;
+}
+
+.list-item h2{
+  font-size:22px;
+  font-weight:600;
+  color:#0F172A;
+  margin-bottom:8px;
+}
+
+.list-item p{
+  color:#64748B;
+  line-height:1.7;
+}
+
+
+/* =========================================
+   AUTOMATION STEPS
+   Automation 메뉴 내용
+========================================= */
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:42px;
+  max-width:720px;
+}
+
+.steps div{
+  border-top:1px solid #CBD5E1;
+  padding-top:18px;
+}
+
+.steps span{
+  display:block;
+  font-size:13px;
+  color:#94A3B8;
+  margin-bottom:12px;
+}
+
+.steps p{
+  font-size:16px;
+  font-weight:600;
+  color:#334155;
+}
+
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.github-link{
+  display:inline-block;
+  margin-top:36px;
+  color:#0F172A;
+  font-weight:600;
+  text-decoration:none;
+  border-bottom:1px solid #0F172A;
+  padding-bottom:4px;
+}
+
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(12px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+
+/* =========================================
+   MOBILE
+   화면이 작을 때
+========================================= */
+
+@media(max-width:768px){
+  .section-title{
+    font-size:34px;
+  }
+
+  .steps{
+    grid-template-columns:1fr;
+  }
 }
